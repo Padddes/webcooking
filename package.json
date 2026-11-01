@@ -1,0 +1,16 @@
+{
+  "name": "paddes-lu",
+  "version": "0.1.0",
+  "private": true,
+  "description": "paddes.lu – personal project hub with a Path of Exile 1 learning section and tools.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "build": "node --disable-warning=ExperimentalWarning build/build.ts",
+    "preview": "node build/serve.ts",
+    "dev": "node --disable-warning=ExperimentalWarning build/build.ts && node build/serve.ts",
+    "test": "node --disable-warning=ExperimentalWarning --test \"tests/**/*.test.ts\""
+  }
+}

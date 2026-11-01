@@ -1,0 +1,17 @@
+{
+  "items": [
+    { "id": "home", "label": "Home", "href": "/", "icon": "home" },
+    {
+      "id": "poe",
+      "label": "Path of Exile",
+      "href": "/poe/",
+      "icon": "poe",
+      "children": [
+        { "id": "poe-learn", "label": "Learn", "href": "/poe/guides/", "icon": "book" },
+        { "id": "poe-tools", "label": "Tools", "href": "/poe/tools/", "icon": "tool" },
+        { "id": "poe-glossary", "label": "Glossary", "href": "/poe/glossary/", "icon": "glossary" }
+      ]
+    },
+    { "id": "about", "label": "About", "href": "/about/", "icon": "about" }
+  ]
+}

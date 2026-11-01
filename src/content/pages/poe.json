@@ -1,0 +1,14 @@
+{
+  "title": "Path of Exile 1",
+  "seoDescription": "Learn how Path of Exile 1 works: character building, damage, defences, items and endgame progression, plus practical tools.",
+  "heading": "Path of Exile 1",
+  "lead": "Explanations of how the game actually works, written to be read in a few minutes, with practical examples and the mistakes worth avoiding.",
+  "categories": [
+    { "id": "start-here", "label": "Start here", "description": "What to know before and during your first character." },
+    { "id": "character-building", "label": "Character building", "description": "Skills, support gems, links and the passive tree." },
+    { "id": "damage-explained", "label": "Damage explained", "description": "How damage is calculated and what actually scales it." },
+    { "id": "staying-alive", "label": "Staying alive", "description": "Resistances, life and energy shield, mitigation and recovery." },
+    { "id": "items-and-crafting", "label": "Items and crafting", "description": "Item modifiers, affixes and the basics of crafting." },
+    { "id": "progression-and-endgame", "label": "Progression and endgame", "description": "From the campaign to maps and beyond." }
+  ]
+}

@@ -1,0 +1,360 @@
+/* App shell: sidebar + main column. Mobile-first, sidebar becomes a drawer below 900px. */
+
+.shell {
+  min-height: 100vh;
+}
+
+/* ── Top bar (mobile only) ─────────────────────────────────────────────── */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  background: rgb(18 17 15 / 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text);
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  min-height: 44px;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid var(--gold-line);
+  border-radius: 50%;
+  color: var(--gold-strong);
+  background: radial-gradient(circle at 30% 25%, rgb(227 194 127 / 0.18), transparent 70%);
+  font-size: 1.05rem;
+}
+
+.icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  cursor: pointer;
+}
+
+.icon-button:hover {
+  border-color: var(--gold-line);
+}
+
+.icon {
+  width: 1.25rem;
+  height: 1.25rem;
+  flex: none;
+}
+
+/* ── Sidebar ───────────────────────────────────────────────────────────── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-3);
+  background: var(--bg-raised);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-2);
+}
+
+.nav-list,
+.nav-sublist {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list > li + li {
+  margin-top: var(--space-1);
+}
+
+.nav-sublist {
+  margin: var(--space-1) 0 var(--space-2) 1.35rem;
+  padding-left: var(--space-2);
+  border-left: 1px solid var(--border);
+}
+
+.nav-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  text-decoration: none;
+  line-height: 1.25;
+}
+
+.nav-link--sub {
+  min-height: 40px;
+  font-size: var(--step--1);
+}
+
+.nav-link--sub .icon {
+  width: 1.05rem;
+  height: 1.05rem;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background: var(--surface);
+}
+
+.nav-link.is-active {
+  color: var(--text);
+}
+
+.nav-link[aria-current='page'] {
+  background: var(--gold-soft);
+  color: var(--gold-strong);
+}
+
+.nav-link[aria-current='page']::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 2px;
+  border-radius: 2px;
+  background: var(--gold);
+}
+
+.collapse-toggle {
+  display: none;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: auto;
+  min-height: 44px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: none;
+  color: var(--text-faint);
+  cursor: pointer;
+  font-size: var(--step--1);
+  text-align: left;
+}
+
+.collapse-toggle:hover {
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.collapse-toggle .icon {
+  transition: transform 0.2s var(--ease);
+}
+
+/* ── Main column ───────────────────────────────────────────────────────── */
+.main-col {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: calc(100vh - 61px);
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+.page-tool main {
+  max-width: none;
+}
+
+.site-footer {
+  padding: var(--space-5) var(--space-4);
+  border-top: 1px solid var(--border);
+  color: var(--text-faint);
+  font-size: var(--step--1);
+}
+
+.site-footer p {
+  max-width: var(--content-width);
+  margin: 0 auto var(--space-1);
+}
+
+/* ── Mobile drawer (< 900px) ───────────────────────────────────────────── */
+@media (max-width: 899.98px) {
+  .js .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 50;
+    width: min(20rem, 86vw);
+    overflow-y: auto;
+    transform: translateX(-105%);
+    transition: transform 0.25s var(--ease), visibility 0s linear 0.25s;
+    visibility: hidden;
+    box-shadow: 0 0 40px rgb(0 0 0 / 0.6);
+  }
+
+  .js.drawer-open .sidebar {
+    transform: none;
+    visibility: visible;
+    transition: transform 0.25s var(--ease);
+  }
+
+  .drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    background: rgb(0 0 0 / 0.55);
+  }
+
+  .js.drawer-open body {
+    overflow: hidden;
+  }
+
+  /* Without JavaScript the navigation simply appears below the top bar. */
+  .no-js .menu-button,
+  .no-js .drawer-close {
+    display: none;
+  }
+
+  .no-js .sidebar .sidebar-head {
+    display: none;
+  }
+}
+
+/* ── Desktop (≥ 900px) ─────────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  .shell {
+    --sb: var(--sidebar-width);
+    display: grid;
+    grid-template-columns: var(--sb) minmax(0, 1fr);
+    /* Paint the sidebar column full height, even when the page is taller than the sticky sidebar. */
+    background: linear-gradient(
+      90deg,
+      var(--bg-raised) calc(var(--sb) - 1px),
+      var(--border) calc(var(--sb) - 1px) var(--sb),
+      var(--bg) var(--sb)
+    );
+  }
+
+  .sidebar {
+    border-right: 0;
+  }
+
+  .topbar,
+  .drawer-backdrop,
+  .drawer-close {
+    display: none;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  .collapse-toggle {
+    display: flex;
+  }
+
+  .main-col {
+    min-height: 100vh;
+  }
+
+  main {
+    padding: var(--space-7) var(--space-6) var(--space-8);
+  }
+
+  .page-tool main {
+    padding-top: var(--space-5);
+  }
+
+  .site-footer {
+    padding-inline: var(--space-6);
+  }
+
+  /* Collapsed: icons only, labels kept for assistive tech, tooltips on hover/focus. */
+  .sidebar-collapsed .shell {
+    --sb: var(--sidebar-collapsed);
+  }
+
+  .sidebar-collapsed .sidebar {
+    padding-inline: var(--space-2);
+    overflow: visible;
+  }
+
+  .sidebar-collapsed .brand-text,
+  .sidebar-collapsed .nav-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .sidebar-collapsed .sidebar-head {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .sidebar-collapsed .nav-link,
+  .sidebar-collapsed .collapse-toggle {
+    justify-content: center;
+    padding-inline: 0;
+  }
+
+  .sidebar-collapsed .nav-sublist {
+    margin-left: 0;
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .sidebar-collapsed .collapse-toggle .icon {
+    transform: rotate(180deg);
+  }
+
+  .sidebar-collapsed .nav-link:hover::after,
+  .sidebar-collapsed .nav-link:focus-visible::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 0.6rem);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 60;
+    padding: 0.3rem 0.6rem;
+    white-space: nowrap;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    font-size: var(--step--1);
+    pointer-events: none;
+  }
+}

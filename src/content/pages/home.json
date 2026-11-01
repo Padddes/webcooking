@@ -1,0 +1,16 @@
+{
+  "title": "Welcome",
+  "seoDescription": "paddes.lu – a personal project hub, starting with a Path of Exile 1 learning corner and a map regex builder.",
+  "heading": "Welcome to paddes.lu",
+  "lead": "A small home for the things I build. The first project is a Path of Exile 1 corner: clear explanations of how the game works, and tools that save time in-game.",
+  "intro": "",
+  "featured": {
+    "eyebrow": "Featured project",
+    "title": "Path of Exile 1",
+    "text": "Plain-language guides on how characters, damage and defences work, a glossary of the game's jargon, and a map regex builder for your stash search.",
+    "links": [
+      { "label": "Start learning", "href": "/poe/guides/" },
+      { "label": "Map regex builder", "href": "/poe/tools/regex/" }
+    ]
+  }
+}

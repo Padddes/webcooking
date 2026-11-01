@@ -1,0 +1,27 @@
+{
+  "title": "Tools",
+  "seoDescription": "Practical Path of Exile 1 tools that run in your browser.",
+  "heading": "Tools",
+  "lead": "Small tools that run entirely in your browser. Nothing you enter is sent anywhere.",
+  "tools": [
+    {
+      "id": "map-regex",
+      "label": "Map regex builder",
+      "href": "/poe/tools/regex/",
+      "status": "in-development",
+      "description": "Pick the map modifiers you want and the ones you don't, then copy a search string for your stash."
+    },
+    {
+      "id": "flask-regex",
+      "label": "Flask regex builder",
+      "status": "planned",
+      "description": "Search flasks by the modifiers you want."
+    },
+    {
+      "id": "vendor-regex",
+      "label": "Vendor regex builder",
+      "status": "planned",
+      "description": "Highlight useful items in vendor windows while levelling."
+    }
+  ]
+}
